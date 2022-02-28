@@ -5,7 +5,7 @@ This is a web app for creating and managing tasks. You can create and save tasks
 
 Link to Github: https://github.com/Lau-bit/Javascript-course
 
-Link to Netlify: https://app.netlify.com/sites/ecstatic-jennings-4fca60/overview
+Link to Netlify: https://ecstatic-jennings-4fca60.netlify.app/
 
 The application fills most of the requirements.
 >Items are assembled into a list
