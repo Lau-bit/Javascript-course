@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="styles.css">
+
+<meta charset="UTF-8">
+
+<title>to-do list</title>
+
+</head>
+
+<body onload="appendMultiple()">
+
+    <h1>To-do list</h1>
+<p>Write a task below and click on "Create task" to add it to the list. You can mark a task done by clicking on it.
+   Remove a task by clicking the "X"-button. Your tasks are automatically saved.</p>
+
+<div id="textField">
+
+  <input type="text" onclick="clearRed()" id="createTask" name="textField1" class="textArea" placeholder="Write a task here">
+  
+
+</div>
+
+<div>
+<button onclick="addItem()" id="button1" class="addButton">Create task</button>
+</div>
+<div id="ulList" class="ul">
+<ul id="datat" class="null">
+  </ul>
+
+</div>
+
+  <br><br>
+  <button onclick="removeItems()" id="printData" class="addButton">Click here to remove all items</button>
+
+  <button onclick="setDone()" id="printData" class="addButton">setDone()</button>
+  <button onclick="saveDone()" id="printData" class="addButton">saveDone()</button>
+
+
+</body>
+<script type="text/javascript" src="todolistv8.js">
+
+</script>
+
+
+</html>
+
