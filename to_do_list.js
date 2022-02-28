@@ -121,6 +121,7 @@ function removeItems() {
 	window.localStorage.removeItem("tasks");
     window.localStorage.tasks=listItems;
 	ul.innerHTML="";
+    window.location.reload();
 }
 
 //mark a task as done/undone and highlight it
