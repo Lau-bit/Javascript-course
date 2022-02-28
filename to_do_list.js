@@ -3,7 +3,7 @@ var i=0;
 var j=0;
 var k=0;
 var doneItems=0;
-
+var taskCounter=0;
 window.localStorage.removeItem("isItDone");
 var ul=document.getElementById("datat");
 
@@ -31,10 +31,13 @@ function addItemsOnLoad() {
     x.numberValue=i;
     const listElement=document.querySelector("ul");
     var text1=document.createTextNode(myArray[i])
+    
+    count();
 
     if (myArray != "") {
 	listElement.append(x);
 	x.appendChild(text1);
+    taskCounter++;
     i++;
 
     if (x.textContent!=""){
@@ -42,11 +45,13 @@ function addItemsOnLoad() {
     x.classList=("li");
     }
 }
-
+//delete button functionality
     button.onclick=function(){
+        taskCounter--;
         button.parentElement.remove()
         delete listItems[x.numberValue];
         localStorage.setItem("tasks", listItems);
+        count();
 	};
 }
 	
@@ -54,12 +59,13 @@ function appendMultiple() {
 
 	for (var j=0; j<myArray.length; j++) {
 	addItemsOnLoad();
+    count();
 	};
 }
 
 //Create task function
 function addItem() {
-
+    
 	var button=document.createElement("button");
     button.innerHTML=("X");
 	var x = document.createElement("li");
@@ -88,10 +94,11 @@ function addItem() {
 	else {
     
     listItems.push(task);
-
 //on successful input, add task to list
 	x.appendChild(t);
     x.classList=("li");
+    taskCounter++;
+    count();
 
 //Create a remove button for each new task
 	x.appendChild(button);
@@ -105,9 +112,11 @@ function addItem() {
 	
 //Remove button functionality
 button.onclick=function(){
+    taskCounter--;
     button.parentElement.remove()
     delete listItems[x.numberValue];
     localStorage.setItem("tasks", listItems);
+    count();
 };  
 }
 
@@ -132,6 +141,11 @@ markDone.addEventListener("click", function(ev) {
 }
 }
 )
+
+function count() {
+    counterElement=document.getElementById("counter");
+    counterElement.innerHTML=("Tasks: " +taskCounter);
+}
 
 //set items to localStorage
 window.localStorage.tasks=listItems;
