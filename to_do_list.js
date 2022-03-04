@@ -129,11 +129,15 @@ window.localStorage.tasks=listItems;
 
 //delete localStorage
 function removeItems() {
+
+	var isOK=confirm("Do you want to delete all list items?");
+	if (isOK==true) {
 	listItems=[];
 	window.localStorage.removeItem("tasks");
     window.localStorage.tasks=listItems;
 	ul.innerHTML="";
     window.location.reload();
+	}
 }
 
 //mark a task as done/undone and highlight it
