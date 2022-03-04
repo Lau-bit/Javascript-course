@@ -1,12 +1,30 @@
-body {
+html {
+  height: 100%;   
   background-color: rgb(122, 179, 187);
+}
+
+body {
+  background-color: rgb(77, 156, 192);
   width: 50%;
   margin: auto;
+  margin-top: 32px;
+  padding: 32px;
+  border: 2px solid black;
+  box-shadow: 4px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-size: 20px;
+}
+
+.none {
+  display:none;
 }
 
 h1 {
-  color: blue;
+  color: rgb(0, 0, 0);
   font-size: 36px;
+  text-align: center;
 }
 
 .error {
@@ -17,6 +35,7 @@ h1 {
 .textArea {
   font-size: 24px;
   color: black;
+  width: 100%;
 }
 
 ul {
@@ -26,9 +45,19 @@ ul {
   background-color:#555;
 }
 
+li {
+  border-bottom: 1px solid black;
+  padding: 4px;
+  overflow: hidden;
+}
+
 button
 {
   float: right;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  padding-bottom: 3px;
 }
 
 ul li:hover {
@@ -44,13 +73,14 @@ ul li.checked {
   padding: 10px;
   width: 25%;
   background: #d9d9d9;
-  color: #555;
+  color: rgb(0, 0, 0);
   float: none;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 0;
+  margin-top: 6px;
 }
 
 .done {

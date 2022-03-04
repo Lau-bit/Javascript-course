@@ -4,6 +4,14 @@ var j=0;
 var k=0;
 var doneItems=0;
 
+//add items to list by pressing enter
+var input=document.getElementById("createTask");
+input.addEventListener("keypress", function(event) {
+	if (event.keyCode === 13 ) {
+		document.getElementById("button1").click();
+	}
+});
+
 window.localStorage.removeItem("isItDone");
 var ul=document.getElementById("datat");
 
@@ -41,6 +49,10 @@ function addItemsOnLoad() {
 	x.appendChild(button);
     x.classList=("li");
     }
+
+	else if (x.textContent=="") {
+		x.classList.add("none")
+	}
 }
 
     button.onclick=function(){
@@ -133,11 +145,12 @@ markDone.addEventListener("click", function(ev) {
 }
 )
 
-//set items to localStorage
-window.localStorage.tasks=listItems;
-
 //clear red color regarding invalid input
 function clearRed() {
     var form=document.getElementById("createTask");
     form.classList.add(".textArea");
 }
+
+//clear empty elements, set items to localStorage
+listItems = listItems.filter(item => item);
+window.localStorage.tasks=listItems;
