@@ -18,7 +18,6 @@ var ul=document.getElementById("datat");
 //list for storage
 var listItems=[];
 
-
 if (localStorage.getItem("tasks") === null) {
     removeItems()
   }
@@ -32,6 +31,7 @@ for (var l=0; l<myArray.length; l++) {
     listItems.push(myArray[l]);
 }
 
+//add items on page load from localstorage
 function addItemsOnLoad() {
     var button=document.createElement("button");
     var x=document.createElement("li")
@@ -39,6 +39,9 @@ function addItemsOnLoad() {
     x.numberValue=i;
     const listElement=document.querySelector("ul");
     var text1=document.createTextNode(myArray[i])
+	if (myArray[i]=="") {
+		x.classList="none";
+	}
 
     if (myArray != "") {
 	listElement.append(x);
@@ -49,12 +52,8 @@ function addItemsOnLoad() {
 	x.appendChild(button);
     x.classList=("li");
     }
-
-	else if (x.textContent=="") {
-		x.classList.add("none")
-	}
 }
-
+//delete button functionality
     button.onclick=function(){
         button.parentElement.remove()
         delete listItems[x.numberValue];
@@ -62,6 +61,7 @@ function addItemsOnLoad() {
 	};
 }
 	
+//loop item add on load
 function appendMultiple() {
 
 	for (var j=0; j<myArray.length; j++) {
@@ -98,7 +98,7 @@ function addItem() {
 		return;
 	}
 	else {
-    
+//place task to list for saving it
     listItems.push(task);
 
 //on successful input, add task to list
@@ -107,7 +107,6 @@ function addItem() {
 
 //Create a remove button for each new task
 	x.appendChild(button);
-	
 	i++;
 	document.getElementById("datat").appendChild(x);
 	document.getElementById("createTask").value="";
@@ -127,9 +126,8 @@ button.onclick=function(){
 window.localStorage.tasks=listItems;
 }	
 
-//delete localStorage
+//delete localStorage, ask if it's ok to remove everything
 function removeItems() {
-
 	var isOK=confirm("Do you want to delete all list items?");
 	if (isOK==true) {
 	listItems=[];
@@ -149,12 +147,11 @@ markDone.addEventListener("click", function(ev) {
 }
 )
 
+//set items to localStorage
+window.localStorage.tasks=listItems;
+
 //clear red color regarding invalid input
 function clearRed() {
     var form=document.getElementById("createTask");
     form.classList.add(".textArea");
 }
-
-//clear empty elements, set items to localStorage
-listItems = listItems.filter(item => item);
-window.localStorage.tasks=listItems;
