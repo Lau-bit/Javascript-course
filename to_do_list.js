@@ -12,7 +12,7 @@ input.addEventListener("keypress", function(event) {
 	}
 });
 
-window.localStorage.removeItem("isItDone");
+//find ul in document
 var ul=document.getElementById("datat");
 
 //list for storage
@@ -98,6 +98,7 @@ function addItem() {
 		return;
 	}
 	else {
+		
 //place task to list for saving it
     listItems.push(task);
 
