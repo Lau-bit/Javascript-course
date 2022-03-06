@@ -18,11 +18,12 @@ var ul=document.getElementById("datat");
 //list for storage
 var listItems=[];
 
-if (localStorage.getItem("tasks") === null) {
-    removeItems()
-  }
+//load tasks from local storage
 var teksti1=localStorage.getItem("tasks");
+
+//turn localstorage data into array
 var myArray=teksti1.split(",");
+
 //Check for conditions and create a local storage array
 if (myArray[0]=="") {
     myArray.shift();
@@ -98,7 +99,7 @@ function addItem() {
 		return;
 	}
 	else {
-		
+
 //place task to list for saving it
     listItems.push(task);
 
