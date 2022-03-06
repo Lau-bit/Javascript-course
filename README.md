@@ -18,7 +18,9 @@ The application fills most of the requirements.
 >No noticeable errors
 >Project has comments
 >Has readme-file
+>Code is formatted
 >Is deployed to GitHub and Netlify
+>Easy to use and clean UI
 
-I would give this project 19 points.
+I would give this project around 21 points.
 
